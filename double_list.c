@@ -83,14 +83,34 @@ Node* list_insert(Node *h, int pos, int data)
 	return h;
 }
 
+Node* list_del(Node* h, int data)
+{
+	Node *cur = h;
+
+	while(cur) {
+		if(cur->data == data) {
+			cur->pre->next = cur->next;
+			cur->next->pre = cur->pre;
+			free(cur);
+			printf("del %d success\n", data);
+			return h;
+		}
+		
+		cur = cur->next;
+	}
+	printf("not found the %d\n", data);
+	return h;
+}
+
 
 int main()
 {
 
 	Node *h = init();
 	print_list(h);
-	list_insert(h, 4, 23);
-	print_list(h);
+	//list_insert(h, 4, 23);
+	//print_list(h);
+	list_del(h, 33);
 
 	return 0;
 }
