@@ -17,9 +17,9 @@ void insert(struct BTreeNode **bst, ElemType x)
 		p->left = p->right = NULL;
 		*bst = p;
 	} else if(x < (*bst)->data) {
-		insert(&((*bst)->left), x);	
+		insert(&(*bst)->left, x);	
 	} else {
-		insert(&((*bst)->right), x);	
+		insert(&(*bst)->right, x);	
 	}
 }
 
