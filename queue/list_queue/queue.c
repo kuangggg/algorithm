@@ -47,3 +47,10 @@ Status DeQueue(Queue *q, ElementType *e)
 	
 	return OK;
 }
+
+Status QueueEmpty(Queue *q)
+{
+	return q->front == q->rear ? OK : ERROR;
+}
+
+

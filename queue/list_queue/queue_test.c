@@ -21,6 +21,8 @@ main()
 
 	ret = DeQueue(&q, &e);		
 	printf("dequeue ret %d res %d\n", ret, e);
+
+	printf("the queue is empty %d\n", QueueEmpty(&q));
 	
 	ret = DeQueue(&q, &e);		
 	printf("dequeue ret %d res %d\n", ret, e);
@@ -30,4 +32,6 @@ main()
 
 	ret = DeQueue(&q, &e);		
 	printf("dequeue ret %d res %d\n", ret, e);
+
+	printf("the queue is empty %d\n", QueueEmpty(&q));
 }

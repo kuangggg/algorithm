@@ -21,4 +21,6 @@ Status EnQueue(Queue *q, ElementType e);
 
 Status DeQueue(Queue *q, ElementType *e);
 
+Status QueueEmpty(Queue *q);
+
 
