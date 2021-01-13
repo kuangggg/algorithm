@@ -110,7 +110,7 @@ void dfs(Graph *g, int i)
 
 void main()
 {
-	printf("邻接表\n");
+	printf("邻接表深度优先遍历\n");
 	
 	Graph g;
 

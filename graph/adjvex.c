@@ -66,9 +66,9 @@ void createGraph(Graph *g)
 		ch = getchar();
 		while(getchar() != '\n');
 		g->adjList[i].data = ch;
+		g->adjList[i].first = NULL;
 	}
 
-	g->adjList[i].first = NULL;
 
 	printf("请按照如下格式输入顶点和权重\n");
 	printf("v1 v2 w\n");
