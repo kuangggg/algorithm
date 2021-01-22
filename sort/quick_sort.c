@@ -27,12 +27,16 @@ void quick_sort(int *arr, int begin, int end)
 int main()
 {
 	int num[12] = {23,45,17,11,13,89,72,26,3,17,11,13};
-	int n = 12;
+	int n = 12, i;
+
+	for(i = 0; i<n; i++) {
+		printf("%d ", num[i]);	
+	}
+
 	quick_sort(num, 0, n-1);
 	printf("sorted \n");
-	int i;
 	for(i = 0; i<n; i++) {
-		printf("%d\n", num[i]);	
+		printf("%d ", num[i]);	
 	}
 	return 0;
 }
