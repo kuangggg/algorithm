@@ -9,26 +9,62 @@ typedef struct Node_ {
 	int data;	
 } Node;
 
+Node* make_node(int val)
+{
+	Node *n = (Node*)malloc(sizeof(Node));
+	n->data = val;
+	n->next = NULL;
+	return n;
+}
+
 Node* init_list(int *arr, int len)
 {
 	int i;
 	Node *head, *pre;	
-
-	head = (Node *)malloc(sizeof(Node));
-	head->data = 0;
-	head->next = NULL;
+	head = make_node(0);
 
 	pre = head;
 	for(i = 0; i<len; i++) {
-		Node *node = (Node *)malloc(sizeof(Node));
-		node->data = arr[i];	
-		node->next = NULL;
-		
-		pre->next = node;
-		pre = node;
+		Node *new = make_node(arr[i]);
+		pre->next = new;
+		pre = new;
 	}	
 	
 	return head;
+}
+
+void insert_node(Node *h, int pos, int data)
+{
+	Node *pre, *new;	
+	pre = h;
+	int i = 0;
+	
+	while(pre->next) {
+		i++;
+		if(i == pos) {
+			new = make_node(data);
+			new->next = pre->next;
+			pre->next = new;
+		}
+		pre = pre->next;
+	}	
+}
+
+void del_node(Node *h, int pos)
+{
+	Node *pre, *del;	
+	pre = h;
+	int i = 0;
+	while(pre->next) {
+		i++;
+		if(i == pos) {
+			del = pre->next;
+			pre->next = del->next;		
+			free(del);
+		}
+		pre = pre->next;
+	}
+	
 }
 
 Node* reverse_list(int *arr, int len)
@@ -70,6 +106,10 @@ int main()
 	int arr[SIZE] = {11, 22, 333, 4444, 5};	
 	head = init_list(arr, SIZE);
 	print_list(head);
-	newHead = reverse_list(arr, SIZE);
-	print_list(newHead);	
+	printf("插入第一个个节点\n");
+	insert_node(head, 1, 99);
+	print_list(head);
+	printf("删除第四个节点\n");
+	del_node(head, 4);
+	print_list(head);
 }
